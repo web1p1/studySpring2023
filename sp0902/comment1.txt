@@ -1,0 +1,20 @@
+[sp09b]
+
+
+
+[sp09a]
+AOP 구현 : xml 스키마
+1. pom.xml - org.aspectj
+2. appCtx.xml
+
+	<bean id="logAop" class="com.wind.sp09.LogAop" />
+	
+	<aop:config>
+		<aop:aspect id="logger" ref="logAop">
+			<aop:pointcut id="publicM" expression="within(com.wind.sp09.*)"  />
+			<aop:around pointcut-ref="publicM" method="loggerAop" />
+		</aop:aspect>
+	</aop:config>
+
+
+

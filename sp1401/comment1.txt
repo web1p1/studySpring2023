@@ -1,0 +1,135 @@
+[sp14a-web]
+1. GET/PUT 방식 동시 사용
+A-1. method 를 지운다.
+	@RequestMapping("/")
+A-2. GET, POST 모두 선언
+	@RequestMapping(method = {RequestMethod.GET, RequestMethod.POST}, value="/경로" )
+A-3. 하나는 Model 로 다른 하나는 ModelAndView 로 생성
+A-4. 이름이 다른 메소드에 경로는 동일하게
+
+
+[sp13b-web]
+1. @PathVariable 어노테이션
+@RequestMapping("/student/{studentId}")
+public String getStudent(@PathVariable String studentId, Model model) {
+
+
+
+[sp13a-web]
+HttpServletRequest 사용, PUT/GET 메소드 
+
+	@RequestMapping("경로")
+	메소드(HttpServletRequest httpServletRequest, Model model) {
+		String id = httpServletRequest.getParameter("id");
+		model.addAttribute("id", id);
+		return "경로";
+	}
+
+
+@RequestParam("id") String id
+
+//	@RequestMapping("/member/join")
+//	public String joinData(@RequestParam("name") String name, @RequestParam("id") String id, 
+//			@RequestParam("pw") String pw, @RequestParam("email") String email, Model model) {
+대신
+	@RequestMapping("/member/join")
+	public String joinData(Member member) {
+
+
+[sp12bweb]
+기본 : http://localhost:8080/sp12/
+기본 => 			home.jsp
+기본+write =>	board/write.jsp
+기본+board/info =>board/info.jsp
+
+@RequestMapping("/board")
+@Controller
+클래스1 {
+	@RequestMapping("")
+	메소드1() { ...
+	return "board/루트";}
+
+	@RequestMapping("/")
+	메소드2() { ...
+	return "board/루트";}
+
+	@RequestMapping("/info")
+	메소드3() { ...
+	return "board/info";}
+}
+
+[sp12aweb]
+1. Controller 클래스 작성
+
+	@Controller
+	클래스이름 {
+	@RequestMapping("/경로")
+	public 메소드이름(Model model) {
+			model.addAttribute("아이디", 값);
+			return "경로";
+		}
+
+	@Controller
+	클래스이름 {
+	@RequestMapping("/경로")
+	public ModelAndView 메소드이름() {
+		ModelAndView 모델뷰객체 = new ModelAndView();
+		모델뷰객체.addObject("아이디", 값);
+		모델뷰객체.setViewName("경로");
+		return 모델뷰객체;
+		}
+
+	@Controller
+	public class HomeController {
+		@RequestMapping("/board/content")
+		public String content(Model model) {
+			model.addAttribute("id", 30);
+			return "board/content";
+		}
+
+	@RequestMapping("/board/reply")
+	public ModelAndView reply() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("id", 10);
+		mv.setViewName("board/reply");
+		return mv;
+		}
+
+[sp11bweb]
+1. servlet-context.xml : 
+	<resources mapping="/img_resources/**" location="/img_resources/" />
+	
+
+
+[sp11aweb]
+MVC Model
+
+1. web.xml : 한글 utf-8
+	<!-- 한글처리를 위한 필터 UTF-8  -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter     
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>   
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>  
+			<param-value>true</param-value>
+		</init-param>
+	</filter>    
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>                 
+	</filter-mapping> 
+
+
+2. servlet-context.xml : 
+	<resources mapping="/resources/**" location="/resources/" />
+	/resources/**
+	
+
+

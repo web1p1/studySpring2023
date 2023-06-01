@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+ 
+<!--  singletone 의 경우 하나의 컨테이너에 bean 1개로 고정된다.(기본), 아래 주석처리 부분은 에러
+	<bean id="student2" class="com.spring.ex.Student" scope="singleton">
+	</bean>
+-->
+
+
+<!-- 아래는 에러 (singletone) 으로 복수의 bean 생성 불가 --> 
+<!-- 	<bean id="student" class="com.spring.ex.Student" scope="singleton">
+		<constructor-arg value="오드리"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+	<bean id="student2" class="com.spring.ex.Student" scope="singleton">
+	</bean>
+ -->
+
+<!-- default 는 singletone 이므로 아래도 불가  --> 
+<!-- 	<bean id="student" class="com.spring.ex.Student">
+		<constructor-arg value="오드리"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+	<bean id="student2" class="com.spring.ex.Student">
+	</bean>
+ -->
+
+
+
+
+
+ 	<bean id="student" class="com.spring.ex.Student" scope="singleton">
+		<constructor-arg value="오드리"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+
+
+
+
+	<bean id="act1" class="com.spring.ex.Student" scope="prototype">
+		<constructor-arg value="엠마 스톤"></constructor-arg>
+		<constructor-arg value="28"></constructor-arg>
+	</bean>
+	
+	<bean id="act2" class="com.spring.ex.Student" scope="prototype">
+		<constructor-arg value="앤 헤서웨이"></constructor-arg>
+		<constructor-arg value="31"></constructor-arg>
+	</bean>
+
+</beans>

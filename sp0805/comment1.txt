@@ -1,0 +1,9 @@
+외부파일을 이용한 환경설정
+- 자바 파일 이용
+
+@Configuration
+@Profile("run")
+public class ApplicationConfigRun {
+
+	@Bean
+	...

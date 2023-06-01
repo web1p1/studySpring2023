@@ -1,0 +1,6 @@
+1. String str = scanner.next();
+2. <beans ...
+	...
+	profile="dev">
+3. ctx.getEnvironment().setActiveProfiles(config);
+

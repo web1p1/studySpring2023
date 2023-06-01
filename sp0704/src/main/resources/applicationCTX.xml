@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+
+
+ 	<bean id="student" class="com.spring.ex.Student" scope="singleton">
+		<property name="name" value="오드리"/>
+		<property name="age" value="28"/>
+	</bean>
+	
+	<bean id="act" class="com.spring.ex.Student" scope="prototype">
+		<constructor-arg value="엠마 스톤"></constructor-arg>
+		<constructor-arg value="30"></constructor-arg>
+	</bean>
+	
+
+</beans>

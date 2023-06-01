@@ -1,0 +1,2 @@
+1. applicationCTX.xml 추가
+	<context:property-placeholder location="classpath:admin.properties, classpath:sub_admin.properties" />
