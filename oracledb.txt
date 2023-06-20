@@ -1,0 +1,67 @@
+사용자생성
+
+[CMD] > sqlplus system/oracle
+
+SQL> create user scott identified by tiger; 
+SQL> grant connect, resource to scott;
+
+[삭제] SQL> drop user scott;
+[종료] SQL> exit
+
+[재시작]>> sqlplus scott/tiger
+
+SQL> CREATE SEQUENCE mvc_board_seq;
+
+DROP TABLE mvc_board;
+CREATE table mvc_board(
+    bId NUMBER(4) PRIMARY KEY,
+    bName VARCHAR2(20),
+    bTitle VARCHAR2(100),
+    bContent VARCHAR2(300),
+    bDate DATE DEFAULT SYSDATE,
+    bHit NUMBER(4) DEFAULT 0,
+    bGroup NUMBER(4),
+    bStep NUMBER(4),
+    bIndent NUMBER(4)
+    );
+    
+DROP SEQUENCE mvc_board_seq;
+CREATE SEQUENCE mvc_board_seq;
+
+INSERT INTO mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) 
+values (mvc_board_seq.nextval, 'James', 'Spring Framework', 'spring framework is good to me ', 0, mvc_board_seq.currval, 0, 0);
+
+INSERT INTO mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) 
+values (mvc_board_seq.nextval, 'joy', 'Help me', 'help the error of spring ... ', 0, mvc_board_seq.currval, 0, 0);
+
+
+
+[테이블 내 데이터 확인]
+SELECT * FROM mvc_board 
+
+[커밋]
+commit;
+
+
+프로젝트 Spring MVC 생성 후
+
+1. ojdbc6_g.jar 파일 복사
+
+  C:\oraclexe\app\oracle\product\11.2.0\server\jdbc\lib\ojdbc6_g.jar  를
+  프로젝트의 .\src\main\webapp\WEB-INF\lib 디렉토리에 복사 
+
+2. 서버의 context.xml 파일 내부에 다음 내용 추가
+
+	<Resource auth="Container"
+		driverClassName = "oracle.jdbc.driver.OracleDriver"
+		maxActive="50"
+		maxWait="1000"
+		name="jdbc/Oracle11g"
+		username="scott"
+		password="tiger"
+		type="javax.sql.DataSource"
+		url="jdbc:oracle:thin:@localhost:1521:xe"
+	/>
+
+
+
