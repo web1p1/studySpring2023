@@ -16,7 +16,5 @@ public class MainClass {
 		worker.getWorkerInfo();
 		
 		ctx.close();
-		
 	}
-	
 }

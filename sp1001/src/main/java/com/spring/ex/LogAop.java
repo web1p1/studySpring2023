@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.Pointcut;
 @Aspect
 public class LogAop {
 	
-	@Pointcut("within(com.wind.sp10.*)")
+	@Pointcut("within(com.spring.ex.*)")
 	private void pointcutMethod() {
 	}
 	
@@ -31,7 +31,7 @@ public class LogAop {
 		
 	}
 	
-	@Before("within(com.wind.sp10.*)")
+	@Before("within(com.spring.ex.*)")
 	public void beforAdvice() {
 		System.out.println("beforAdvice()");
 	}

@@ -26,7 +26,7 @@
 	<bean id="myInfo" class="com.spring.ex.MyInfo">
 
 		<property name="name">
-			<value>원빈</value>
+			<value>홍길동</value>
 		</property>	
 	
 		<property name="height">

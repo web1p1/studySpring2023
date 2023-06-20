@@ -40,5 +40,4 @@ public class ApplicationConfig {
 		adminConnection.setSub_adminPw(sub_adminPw);
 		return adminConnection;
 	}
-	
 }

@@ -32,7 +32,7 @@ public class RedirectController {
 	
 	@RequestMapping("/studentURL1")
 	public String studentURL1(Model model) {
-		return "redirect:http://localhost:8181/spring_14_3_ex1_srpingex/studentURL1.jsp";
+		return "redirect:http://localhost:8181/ex/studentURL1.jsp";
 	}
 	
 	
@@ -43,6 +43,6 @@ public class RedirectController {
 	
 	@RequestMapping("/student/studentURL2")
 	public String studentURL22(Model model) {
-		return "redirect:http://localhost:8181/spring_14_3_ex1_srpingex/studentURL2.jsp";
+		return "redirect:http://localhost:8181/ex/studentURL2.jsp";
 	}
 }
